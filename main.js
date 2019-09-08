@@ -1,3 +1,4 @@
+
 const grid = new Muuri('.grid', {
 	layout: {
 		rounding: false
@@ -31,7 +32,7 @@ window.addEventListener('load', () => {
     document.querySelectorAll('.grid .item img').forEach((elemento) => {
         elemento.addEventListener('click', () => {
             const ruta = elemento.getAttribute('src');
-            const descripcion = elemento.parentNode.dataset.descripcion;
+            const descripcion = elemento.parentNode.parentNode.dataset.descripcion;
 
             overlay.classList.add('activo');
             document.querySelector('#overlay img').src = ruta;
@@ -42,9 +43,8 @@ window.addEventListener('load', () => {
     document.querySelector('#btn-cerrar-popup').addEventListener('click' , () => {
         overlay.classList.remove('activo');
     });
-    /*Eventlistener del overlay Me sirve para que la img se cierra ademas de la X
+    /*Eventlistener del overlay Me sirve para que la img se cierra ademas de la X*/
     overlay.addEventListener('click', (evento) => {
         evento.target.id === 'overlay' ? overlay.classList.remove('activo') : '';
-    }); */
+    }); 
 });
-
